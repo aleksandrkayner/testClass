@@ -14,9 +14,6 @@ import Typography from '@material-ui/core/Typography' //acts as a h1 or p tag
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container' //sets a maxwidth
 
-// -- google login --
-import GoogleLogin from 'react-google-login'
-
 const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -91,15 +88,6 @@ const LoginForm = props => {
           >
             {displayName}
           </Button>
-          <div className="google-login">
-            <GoogleLogin
-              clientId="1008588747303-ljut6o3hq2ahlha7hnlcif77eaann8vr.apps.googleusercontent.com"
-              buttonText="Login with Google"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy="single_host_origin"
-            />
-          </div>
           <Grid container>
             <Grid item xs>
               <Link href="/auth/google" variant="body2">
