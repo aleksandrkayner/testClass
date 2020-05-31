@@ -46,7 +46,7 @@
     "axios": "^0.19.2",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.1.1",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "express-session": "^1.17.1",
     "googleapis": "^51.0.0",
     "history": "^4.10.1",
@@ -108,5 +108,13 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "yaml": "^1.10.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-brogrammers-AVTR/iClassroom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/The-brogrammers-AVTR/iClassroom/issues"
+  },
+  "homepage": "https://github.com/The-brogrammers-AVTR/iClassroom#readme"
 }
