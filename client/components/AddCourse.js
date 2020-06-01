@@ -24,7 +24,7 @@ export default class AddCourse extends Component {
     socket.on('chat message', function(msg) {
       console.log(msg)
       let mes = document.getElementById('message')
-      mes.innerHTML = `<li>${msg}</li>`
+      mes.innerHTML = `${mes.innerHTML}<li>${msg}</li>`
       console.log(mes)
     })
   }
@@ -48,6 +48,7 @@ export default class AddCourse extends Component {
             }}
           />
           <button>Send</button>
+          <button>hello</button>
         </form>
       </div>
     )
