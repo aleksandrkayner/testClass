@@ -6,4 +6,11 @@ module.exports = io => {
       console.log(`Connection ${socket.id} has left the building`)
     })
   })
+  io.on('connection', socket => {
+    socket.on('chat message', msg => {
+      console.log('message: ' + msg)
+      io.emit('chat message', msg)
+    })
+  })
+  setInterval(() => io.emit('time', new Date().toTimeString()), 1000)
 }
