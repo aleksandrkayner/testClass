@@ -3,6 +3,8 @@ const router = require('express').Router()
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const {User} = require('../db/models')
 module.exports = router
+const keys = require('./keys.json')
+console.log(keys)
 
 /**
  * For OAuth keys and other secrets, your Node process will search
@@ -18,18 +20,18 @@ module.exports = router
  * process.env.GOOGLE_CALLBACK = '/your/google/callback'
  */
 
-process.env.GOOGLE_CLIENT_ID =
-  '1008588747303-ljut6o3hq2ahlha7hnlcif77eaann8vr.apps.googleusercontent.com'
-process.env.GOOGLE_CLIENT_SECRET = 'XcTI14oq4tbjCHH9SfCqTnq6'
-process.env.GOOGLE_CALLBACK = 'http://localhost:8080/auth/google/callback'
+// process.env.GOOGLE_CLIENT_ID =
+//   '1008588747303-ljut6o3hq2ahlha7hnlcif77eaann8vr.apps.googleusercontent.com'
+// process.env.GOOGLE_CLIENT_SECRET = 'XcTI14oq4tbjCHH9SfCqTnq6'
+// process.env.GOOGLE_CALLBACK = 'http://localhost:8080/auth/google/callback'
 
-if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
+if (!keys.GOOGLE_CLIENT_ID || !keys.GOOGLE_CLIENT_SECRET) {
   console.log('Google client ID / secret not found. Skipping Google OAuth.')
 } else {
   const googleConfig = {
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK
+    clientID: keys.GOOGLE_CLIENT_ID,
+    clientSecret: keys.GOOGLE_CLIENT_SECRET,
+    callbackURL: keys.GOOGLE_CALLBACK
   }
 
   const strategy = new GoogleStrategy(

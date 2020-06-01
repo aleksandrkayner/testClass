@@ -11,14 +11,14 @@ const Image = require('./image')
  *
  *    BlogPost.belongsTo(User)
  */
-User.belongsToMany(Course, {through: UserCourse})
-Course.belongsToMany(User, {through: UserCourse})
+User.belongsToMany(Course, {through: 'UserCourse'})
+Course.belongsToMany(User, {through: 'UserCourse'})
 
 Course.hasMany(Assignment)
 Assignment.belongsTo(Course)
 
-Assignment.belongsToMany(User, {through: UserAssignment})
-User.belongsToMany(Assignment, {through: UserAssignment})
+Assignment.belongsToMany(User, {through: 'UserAssignment'})
+User.belongsToMany(Assignment, {through: 'UserAssignment'})
 
 Course.hasMany(Announcement)
 Announcement.belongsTo(Course)
