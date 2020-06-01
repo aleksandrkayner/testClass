@@ -1,6 +1,8 @@
 const User = require('./user')
 const Teacher = require('./teacher')
 const Assignment = require('./assignment')
+const Course = require('./course')
+const Announcement = require('./announcement')
 const Image = require('./image')
 
 /**
@@ -9,6 +11,17 @@ const Image = require('./image')
  *
  *    BlogPost.belongsTo(User)
  */
+User.belongsToMany(Course, {through: UserCourse})
+Course.belongsToMany(User, {through: UserCourse})
+
+Course.hasMany(Assignment)
+Assignment.belongsTo(Course)
+
+Assignment.belongsToMany(User, {through: UserAssignment})
+User.belongsToMany(Assignment, {through: UserAssignment})
+
+Course.hasMany(Announcement)
+Announcement.belongsTo(Course)
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
