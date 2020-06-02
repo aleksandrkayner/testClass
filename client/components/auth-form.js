@@ -8,11 +8,11 @@ import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
 import Link from '@material-ui/core/Link'
-import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid' //acts as flexbox
+import Box from '@material-ui/core/Box' //acts as a div tag
+import Typography from '@material-ui/core/Typography' //acts as a h1 or p tag
 import {makeStyles} from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
+import Container from '@material-ui/core/Container' //sets a maxwidth
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.primary.main
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -37,6 +37,11 @@ const useStyles = makeStyles(theme => ({
 const LoginForm = props => {
   const {name, displayName, handleSubmit, error} = props
   const classes = useStyles()
+
+  const responseGoogle = response => {
+    console.log(response)
+    console.log(response.profileObj)
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -89,11 +94,11 @@ const LoginForm = props => {
                 {displayName} with Google
               </Link>
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <Link href="/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
+                Don't have an account? Sign Up
               </Link>
-            </Grid>
+            </Grid> */}
           </Grid>
           {error && error.response && <div> {error.response.data} </div>}
         </form>
