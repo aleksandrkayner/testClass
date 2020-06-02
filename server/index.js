@@ -14,6 +14,7 @@ const {spawn} = require('child_process')
 const credentials = require('../credentials')
 const {google} = require('googleapis')
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
+const formatMessage = require('./utils/helpers')
 require('coffee-register')
 
 const axios = require('axios')
@@ -84,15 +85,15 @@ const createApp = () => {
   app.use(express.static(path.join(__dirname, '..', 'public')))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
-  app.use((req, res, next) => {
-    if (path.extname(req.path).length) {
-      const err = new Error('Not found')
-      err.status = 404
-      next(err)
-    } else {
-      next()
-    }
-  })
+  // app.use((req, res, next) => {
+  //   if (path.extname(req.path).length) {
+  //     const err = new Error('Not found')
+  //     err.status = 404
+  //     next(err)
+  //   } else {
+  //     next()
+  //   }
+  // })
 
   // sends index.html
   app.use('*', (req, res) => {
